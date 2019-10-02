@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Motos</title>
+    <style>
+        .barato {
+            background-color: green;
+            color: green;
+        }
+
+        .intermedio {
+            background-color: yellow;
+            color: yellow;
+        }
+
+        .caro {
+            background-color: red;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <script>
+        let costeDiario = 40;
+        let nombre = window.prompt('¿Cual es tu nombre?');
+        let dni = window.prompt('¿Dime tu DNI?');
+        let telefono = window.prompt('Telefono contacto');
+        let cp = window.prompt('Codigo postal');
+        let edad = parseInt(window.prompt('Dime tu edad'));
+        if (edad < 18) {
+            console.log('No damos opcion a alquier de moto');
+        }
+        else {
+            let carnet = window.prompt('¿Tienes carnet de moto?');
+
+            if (carnet.toLowerCase() === 'no') {
+                console.log('No damos opcion a alquier de moto');
+            }
+            else {
+
+                let ciudad = window.prompt('¿Donde quieres alquilar? Bilbao,Madrid,Barcelona o Santander');
+
+                let dias = parseInt(window.prompt('¿Cuantos dias quieres alquilar la moto?'));
+
+                if (dias <= 0 || dias === NaN) {
+                    console.log('No damos opcion a alquier de moto');
+
+
+                }
+
+
+                else {
+                    let precioTotal = dias * costeDiario;
+                    let semanas = Math.floor(dias / 7);
+                    let resto = dias % 7;
+                    console.log('Nombre : ' + nombre);
+                    console.log('DNI : ' + dni);
+                    console.log('Telefono : ' + telefono);
+                    console.log('CP : ' + cp);
+                    console.log('Edad : ' + edad);
+                    console.log('Carnet : ' + carnet);
+                    console.log('Ciudad : ' + ciudad);
+                    console.log('Dias : ' + dias);
+                    if (dias > 7) {
+
+                        console.log(`Cliente con nombre ` + nombre + `, de ` + edad + ` años, con carnet de conducir, vas a recoger la moto en ` + ciudad + ` y alquilas la moto durante (` + semanas + 'semanas y )' + resto + ` dias por un costes de ` + precioTotal + ` Euros.`)
+                        document.write(`Cliente con nombre ` + nombre + `, de ` + edad + ` años, con carnet de conducir, vas a recoger la moto en ` + ciudad + ` y alquilas la moto durante (` + semanas + 'semanas y )' + resto + ` dias por un costes de ` + precioTotal + ` Euros.`)
+                    }
+                    else {
+                        console.log(`Cliente con nombre ` + nombre + `, de ` + edad + ` años, con carnet de conducir, vas a recoger la moto en ` + ciudad + ` y alquilas la moto durante ` + dias + ` dias por un costes de ` + precioTotal + ` Euros.`)
+
+                        document.write(`Cliente con nombre ` + nombre + `, de ` + edad + ` años, con carnet de conducir, vas a recoger la moto en ` + ciudad + ` y alquilas la moto durante ` + dias + ` dias por un costes de ` + precioTotal + ` Euros.`)
+
+                        if (precioTotal < 100) {
+
+
+                            document.write('<div class="barato">');
+                            document.write("Lorem")
+                            document.write('</div>');
+                        }
+                        else if (precioTotal <= 200) {
+
+
+                            document.write('<div class="intermedio">');
+                            document.write("lorem")
+                            document.write('</div>');
+                        }
+                        else if (precioTotal > 200) {
+
+
+                            document.write('<div style="width:10* precioTotal " class="caro">');
+                            document.write("Lorem");
+                            document.write('</div>');
+                        }
+
+
+                    }
+                }
+
+            }
+        }
+    </script>
+
+
+</body>
+
+</html>
